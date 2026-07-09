@@ -7,10 +7,7 @@ let recorder;
 let chunks = [];
 
 startBtn.onclick = async () => {
-    // フルスクリーン
-    if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen();
-    }
+
     chunks = [];
 
     stream = await navigator.mediaDevices.getUserMedia({
