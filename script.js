@@ -11,10 +11,13 @@ startBtn.onclick = async () => {
     chunks = [];
 
     stream = await navigator.mediaDevices.getUserMedia({
-        video:true,
-        audio:true
+        video: {
+            facingMode: {
+                ideal: "environment"
+            }
+        },
+        audio: true
     });
-
     preview.srcObject = stream;
 
     recorder = new MediaRecorder(stream);
@@ -38,7 +41,7 @@ startBtn.onclick = async () => {
 
         // 拡張子は環境によって変わる
         if(recorder.mimeType.includes("mp4")){
-            a.download="movie.mp4";
+            a.download="text";//movie.mp4
         }else{
             a.download="movie.webm";
         }
